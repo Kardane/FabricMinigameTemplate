@@ -9,3 +9,15 @@ pluginManagement {
 }
 
 rootProject.name = 'FabricMinigameTemplate'
+
+includeBuild('vendor/NBTtooltips') {
+    dependencySubstitution {
+        substitute module('com.github.Uni0305:NBTtooltips') using project(':')
+    }
+}
+
+includeBuild('vendor/DisguiseLib') {
+    dependencySubstitution {
+        substitute module('com.github.Kardane:DisguiseLib') using project(':')
+    }
+}

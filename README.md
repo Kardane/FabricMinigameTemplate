@@ -76,10 +76,10 @@ Minecraft **1.21.8 Fabric 서버 전용** 미니게임 모드 템플릿.
 | 라이브러리 | 버전 | 좌표 |
 |---|---|---|
 | fabric-permissions-api | 0.4.0 | `me.lucko:fabric-permissions-api` |
-| RGBMapUtils | 1.0.0 | `com.github.biryeongtrain:RGBMapUtils` |
+| RGBMapUtils | `6b89c1177972c96fc01f1186d13fa9b1bd4681a7` | `com.github.biryeongtrain:RGBMapUtils` |
 | DialogUtils | v1.7.2-mc1.21.8 | `com.github.Kardane:DialogUtils` |
-| NBTtooltips | 0.1.4-SNAPSHOT-5+1.21.8 | `com.github.Uni0305:NBTtooltips` |
-| DisguiseLib | v1.21.8.1 | `com.github.Kardane:DisguiseLib` |
+| NBTtooltips | vendor(includeBuild) | `com.github.Uni0305:NBTtooltips` |
+| DisguiseLib | vendor(includeBuild) | `com.github.Kardane:DisguiseLib` |
 
 ## 4. 프로젝트 구조
 
@@ -235,9 +235,10 @@ public static Text renderHudText(ServerPlayerEntity player) {
 새 라이브러리를 넣을 때는 이 순서만 지키면 된다.
 
 1. `repositories`에 저장소 추가 (필요한 경우만)
-2. `dependencies`에 `modImplementation` 또는 `include(...)` 추가
-3. 버전 문자열은 `gradle.properties`로 분리
-4. `fabric.mod.json`의 `depends`/`suggests` 정리
+2. `dependencies`에 `modImplementation`/`include(...)`/`compileOnly` 중 목적에 맞게 추가
+3. 로컬 소스 의존이면 `vendor/` 클론 + `settings.gradle`의 `includeBuild`/`dependencySubstitution` 적용
+4. 버전 문자열은 `gradle.properties`로 분리
+5. `fabric.mod.json`의 `depends`/`suggests` 정리
 
 ## 8. 트러블슈팅
 
